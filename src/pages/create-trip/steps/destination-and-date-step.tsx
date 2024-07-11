@@ -9,15 +9,17 @@ import {format } from 'date-fns'
 interface DestinationAndDateStepProps {
 
     isGuestsInputOpen: boolean
+    eventStartAndEndDates: DateRange | undefined
     closeGuestsInput: () => void
     openGuestsInput: () => void
     setDestination: (destination: string) => void
     setEventStartAndEndDates: (dates: DateRange | undefined) => void
+    
 }
 
-export function DestinationAndDateStep({ isGuestsInputOpen, openGuestsInput, closeGuestsInput, setDestination, setEventStartAndEndDates }: DestinationAndDateStepProps) {
+export function DestinationAndDateStep({ isGuestsInputOpen, openGuestsInput, closeGuestsInput, setDestination, setEventStartAndEndDates, eventStartAndEndDates }: DestinationAndDateStepProps) {
     const [isDatePickerOpen, setIsDatePickerOpen] = useState(false)
-    const [eventStartAndEnDates, setEventStartAndEndDates] = useState<DateRange | undefined>()
+    
     
 
     function openDatePicker() {
@@ -28,8 +30,8 @@ export function DestinationAndDateStep({ isGuestsInputOpen, openGuestsInput, clo
         return setIsDatePickerOpen(false)
     }
 
-    const displayDate = eventStartAndEnDates  && eventStartAndEnDates.from  && eventStartAndEnDates.to ? 
-    format(eventStartAndEnDates.from, "d' de 'LLL").concat(' até ').concat(format(eventStartAndEnDates.to, "d' de 'LLL")) : null
+    const displayDate = eventStartAndEndDates  && eventStartAndEndDates.from  && eventStartAndEndDates.to ? 
+    format(eventStartAndEndDates.from, "d' de 'LLL").concat(' até ').concat(format(eventStartAndEndDates.to, "d' de 'LLL")) : null
 
     return (
         <div className="h-16 bg-zinc-900 px-4 rounded-xl flex items-center shadow-shape gap-3">
@@ -63,7 +65,7 @@ export function DestinationAndDateStep({ isGuestsInputOpen, openGuestsInput, clo
                             </div>
                         </div>
 
-                        <DayPicker mode="range" selected={eventStartAndEnDates} onSelect={setEventStartAndEndDates} />
+                        <DayPicker mode="range" selected={eventStartAndEndDates} onSelect={setEventStartAndEndDates} />
 
                     </div>
 
