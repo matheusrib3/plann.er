@@ -1,16 +1,16 @@
-import {X, AtSign, Plus} from 'lucide-react'
+import { X, AtSign, Plus } from 'lucide-react'
 import { FormEvent } from 'react'
 import { Button } from '../../components/button'
 
 
 interface InviteGuestsModalProps {
-    closeGuestsModal:() => void  
+    closeGuestsModal: () => void
     emailsToInvite: string[]
-    addNewEmailToInvite:(event: FormEvent<HTMLFormElement>) => void
+    addNewEmailToInvite: (event: FormEvent<HTMLFormElement>) => void
     removeEmailFromInvites: (email: string) => void
 }
 
-export function InviteGuestsModal({addNewEmailToInvite, closeGuestsModal, emailsToInvite, removeEmailFromInvites}: InviteGuestsModalProps) {
+export function InviteGuestsModal({ addNewEmailToInvite, closeGuestsModal, emailsToInvite, removeEmailFromInvites }: InviteGuestsModalProps) {
 
     return (
 

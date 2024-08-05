@@ -29,8 +29,8 @@ export function ImportantLinks() {
             </div>
 
             <Button variant="secondary" size="full">
-            <Plus className="size-5"></Plus>
-            Cadastrar novo link
+                <Plus className="size-5"></Plus>
+                Cadastrar novo link
             </Button>
         </div>
 
